@@ -36,11 +36,27 @@ function Model(sheet_name, primary_key){
     var new_data = [];
     var i = 0;
     new_data[i++] = id + 1;
+    data[this.primary_key] = new_data[0];
     for(var j = 1; j < this.field.length; j++){
       new_data[i++] = data[this.field[j]];
     }
     this.sheet.appendRow(new_data);
-    return new_data[0];
+    return data;
+  }
+  this.update = function(id, data){
+    row = false;
+    for(var i = 0; i < this.data.length; i++){
+      if(this.data[i][this.primary_key] == id){
+        row = i + 2;
+        primary_key = this.data[i][this.primary_key];
+        break;
+      }
+    }
+    data[this.primary_key] = primary_key;
+    for(var j = 1; j < this.field.length; j++){
+      this.sheet.getRange(row, j + 1).setValue(data[this.field[j]]);
+    }
+    return data;
   }
   this.remove = function(id){
     var data_return = false;
