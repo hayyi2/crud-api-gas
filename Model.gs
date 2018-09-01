@@ -31,4 +31,15 @@ function Model(sheet_name, primary_key){
     }
     return data;
   }
+  this.create = function(data){
+    var id = this.sheet.getRange(this.sheet.getLastRow(), 1).getValue();
+    var new_data = [];
+    var i = 0;
+    new_data[i++] = id + 1;
+    for(var j = 1; j < this.field.length; j++){
+      new_data[i++] = data[this.field[j]];
+    }
+    this.sheet.appendRow(new_data);
+    return new_data[0];
+  }
 }
