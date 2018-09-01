@@ -1,0 +1,169 @@
+{
+	"info": {
+		"_postman_id": "3b0fc043-fc56-4e04-a1e2-a4a5e2dc8b7e",
+		"name": "Google Script",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Post",
+			"item": [
+				{
+					"name": "Gets",
+					"request": {
+						"auth": {
+							"type": "oauth2",
+							"oauth2": [
+								{
+									"key": "addTokenTo",
+									"value": "header",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "test-bos",
+									"value": "asdfasdf asdfasdf",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}?group=post&fun=gets",
+							"host": [
+								"{{url}}"
+							],
+							"query": [
+								{
+									"key": "group",
+									"value": "post"
+								},
+								{
+									"key": "fun",
+									"value": "gets"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get :id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "{{url}}?group=post&fun=remove&id=3",
+							"host": [
+								"{{url}}"
+							],
+							"query": [
+								{
+									"key": "group",
+									"value": "post"
+								},
+								{
+									"key": "fun",
+									"value": "remove"
+								},
+								{
+									"key": "id",
+									"value": "3"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "post_title",
+								"value": "test "
+							},
+							{
+								"key": "post_content",
+								"value": "lala lala "
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "post_title",
+									"value": "judul baru",
+									"type": "text"
+								},
+								{
+									"key": "post_content",
+									"value": "content baru",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}?group=post&fun=create",
+							"host": [
+								"{{url}}"
+							],
+							"query": [
+								{
+									"key": "group",
+									"value": "post"
+								},
+								{
+									"key": "fun",
+									"value": "create"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete :id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "{{url}}?group=post&fun=remove&id=1",
+							"host": [
+								"{{url}}"
+							],
+							"query": [
+								{
+									"key": "group",
+									"value": "post"
+								},
+								{
+									"key": "fun",
+									"value": "remove"
+								},
+								{
+									"key": "id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
