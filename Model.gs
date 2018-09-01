@@ -42,4 +42,15 @@ function Model(sheet_name, primary_key){
     this.sheet.appendRow(new_data);
     return new_data[0];
   }
+  this.remove = function(id){
+    var data_return = false;
+    for(var i = 0; i < this.data.length; i++){
+      if(this.data[i][this.primary_key] == id){
+        this.sheet.deleteRow(i + 2);
+        data_return = "204";
+        break;
+      }
+    }
+    return data_return;
+  }
 }
