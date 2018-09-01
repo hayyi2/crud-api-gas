@@ -1,10 +1,13 @@
 var Route = {
   post: function(){
+    var post_model = new Model("Post");
     return {
       gets: function(e){
-          return show_json("Gets Post");
+          return show_json(post_model.gets());
         },
       get: function(e){
+          if (typeof(e.parameter.id) !== 'undefined') {
+          }
           return show_json("Get Post");
         },
       create: function(e){
